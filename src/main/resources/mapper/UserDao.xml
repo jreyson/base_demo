@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ms.base.dao.UserDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.ms.base.domain.UserDO">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="nickname" property="nickname"/>
+        <result column="phone" property="phone"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="auth_token" property="authToken"/>
+        <result column="status" property="status"/>
+        <result column="registered_source" property="registeredSource"/>
+        <result column="wx_open_id" property="wxOpenId"/>
+        <result column="avator" property="avator"/>
+        <result column="weibo_open_id" property="weiboOpenId"/>
+        <result column="reg_id" property="regId"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="last_password_reset" property="lastPasswordReset"/>
+        <result column="roles" property="roles"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `username`,
+        `nickname`,
+        `phone`,
+        `password`,
+        `email`,
+        `auth_token`,
+        `status`,
+        `registered_source`,
+        `wx_open_id`,
+        `avator`,
+        `weibo_open_id`,
+        `reg_id`,
+        `created_at`,
+        `updated_at`,
+        `last_password_reset`,
+        `roles`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id" >
+        INSERT INTO user (
+            `id`,
+            `username`,
+            `nickname`,
+            `phone`,
+            `password`,
+            `email`,
+            `auth_token`,
+            `status`,
+            `registered_source`,
+            `wx_open_id`,
+            `avator`,
+            `weibo_open_id`,
+            `reg_id`,
+            `created_at`,
+            `updated_at`,
+            `last_password_reset`,
+            `roles`
+        ) VALUES (
+            #{pojo.id},
+            #{pojo.username},
+            #{pojo.nickname},
+            #{pojo.phone},
+            #{pojo.password},
+            #{pojo.email},
+            #{pojo.authToken},
+            #{pojo.status},
+            #{pojo.registeredSource},
+            #{pojo.wxOpenId},
+            #{pojo.avator},
+            #{pojo.weiboOpenId},
+            #{pojo.regId},
+            #{pojo.createdAt},
+            #{pojo.updatedAt},
+            #{pojo.lastPasswordReset},
+            #{pojo.roles}
+        )
+    </insert>
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user
+        <set>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.username != null"> `username` = #{pojo.username}, </if>
+            <if test="pojo.nickname != null"> `nickname` = #{pojo.nickname}, </if>
+            <if test="pojo.phone != null"> `phone` = #{pojo.phone}, </if>
+            <if test="pojo.password != null"> `password` = #{pojo.password}, </if>
+            <if test="pojo.email != null"> `email` = #{pojo.email}, </if>
+            <if test="pojo.authToken != null"> `auth_token` = #{pojo.authToken}, </if>
+            <if test="pojo.status != null"> `status` = #{pojo.status}, </if>
+            <if test="pojo.registeredSource != null"> `registered_source` = #{pojo.registeredSource}, </if>
+            <if test="pojo.wxOpenId != null"> `wx_open_id` = #{pojo.wxOpenId}, </if>
+            <if test="pojo.avator != null"> `avator` = #{pojo.avator}, </if>
+            <if test="pojo.weiboOpenId != null"> `weibo_open_id` = #{pojo.weiboOpenId}, </if>
+            <if test="pojo.regId != null"> `reg_id` = #{pojo.regId}, </if>
+            <if test="pojo.createdAt != null"> `created_at` = #{pojo.createdAt}, </if>
+            <if test="pojo.updatedAt != null"> `updated_at` = #{pojo.updatedAt}, </if>
+            <if test="pojo.lastPasswordReset != null"> `last_password_reset` = #{pojo.lastPasswordReset}, </if>
+            <if test="pojo.roles != null"> `roles` = #{pojo.roles} </if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+    <select id="findByUsername" resultMap="AllColumnMap">
+        select
+        <include refid="all_column"/>
+        from user
+        where `username`=#{username}
+    </select>
+</mapper>
+

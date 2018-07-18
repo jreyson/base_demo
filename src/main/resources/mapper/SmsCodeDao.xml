@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ms.base.dao.SmsCodeDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.ms.base.domain.SmsCodeDO">
+        <result column="phone" property="phone"/>
+        <result column="value" property="value"/>
+        <result column="type" property="type"/>
+        <result column="id" property="id"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `phone`,
+        `value`,
+        `type`,
+        `id`,
+        `created_at`,
+        `updated_at`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO sms_code (
+            `phone`,
+            `value`,
+            `type`,
+            `id`,
+            `created_at`,
+            `updated_at`
+        ) VALUES (
+            #{pojo.phone},
+            #{pojo.value},
+            #{pojo.type},
+            #{pojo.id},
+            #{pojo.createdAt},
+            #{pojo.updatedAt}
+        )
+    </insert>
+    <select id="findSmsCodeByPhone" resultMap="AllColumnMap">
+        select * from sms_code where
+        phone =  #{phone} ORDER by id desc limit 1
+    </select>
+</mapper>
+
